@@ -1,11 +1,15 @@
 package stakeholders;
 
 public class SoftwareDev extends Stakeholder {
-    protected int devId;
 
-    public SoftwareDev(String name, int devId) {
+    private PricingModule pricingModule;
+
+    public SoftwareDev(String name) {
         super(name);
-        this.devId = devId;
+    }
+
+    public void createPricingModule(){
+        pricingModule = new PricingModule();
     }
 
 

@@ -1,16 +1,16 @@
-package menu;
+package Restaurant;
 
 import java.util.ArrayList;
 
-abstract class Dish extends Item{
+public class Dish extends Item{
 
 
     private ArrayList<Ingredient> ingredients;
     private String description;
 
 
-    public Dish(String name, int price, String description){
-        super(name, price);
+    public Dish(String name, int price, String dishType, String description){
+        super(name, price, dishType);
         this.ingredients = new ArrayList<>();
         this.description = description;
     }

@@ -1,4 +1,5 @@
 package stakeholders;
+import Restaurant.Restaurant;
 
 abstract class Stakeholder {
 
