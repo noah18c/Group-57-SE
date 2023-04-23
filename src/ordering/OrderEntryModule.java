@@ -1,9 +1,15 @@
 package ordering;
 
-import Restaurant.Item;
-import Restaurant.Menu;
+import restaurant.Item;
+import restaurant.Menu;
 
 import java.util.List;
+
+/**
+ * group name: 57
+ * student names: Noah Croes, Achilleas Leivadiotis
+ * student id's: i6220934, i6327367
+ */
 
 public class OrderEntryModule {
 

@@ -1,9 +1,15 @@
-import Restaurant.Restaurant;
-import Restaurant.*;
+import restaurant.Restaurant;
+import restaurant.*;
 import ordering.*;
 import stakeholders.PricingStrategyOne;
 import stakeholders.RestaurantOwner;
 import stakeholders.SoftwareDev;
+
+/**
+ * group name: 57
+ * student names: Noah Croes, Achilleas Leivadiotis
+ * student id's: i6220934, i6327367
+ */
 
 public class Main {
     public static void main(String[] args) {

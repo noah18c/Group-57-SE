@@ -1,6 +1,12 @@
-package Restaurant;
+package restaurant;
 
 import stakeholders.PricingModule;
+
+/**
+ * group name: 57
+ * student names: Noah Croes, Achilleas Leivadiotis
+ * student id's: i6220934, i6327367
+ */
 
 public class Restaurant {
     private boolean hasInRestaurantDining, hasTakeAway, hasDelivery;
