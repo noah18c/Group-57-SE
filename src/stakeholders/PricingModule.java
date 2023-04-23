@@ -1,7 +1,5 @@
 package stakeholders;
 
-import Restaurant.Restaurant;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +12,10 @@ public class PricingModule {
 
     public void addPricingStrategy(PricingStrategy pricingStrategy){
         pricingStrategies.add(pricingStrategy);
+    }
+
+    public List<PricingStrategy> getPricingStrategies() {
+        return pricingStrategies;
     }
 
     public PricingStrategy removePricingStrategy(PricingStrategy pricingStrategy){

@@ -17,20 +17,19 @@ public class Restaurant {
         menu = new Menu();
     }
 
-    public void dispatchDeliverer(){
-
-    }
-
-    public void retrieveDeliverer(){
-
-    }
-
     public boolean isHasInRestaurantDining() {
         return hasInRestaurantDining;
     }
 
     public void setHasInRestaurantDining(boolean hasInRestaurantDining) {
         this.hasInRestaurantDining = hasInRestaurantDining;
+    }
+
+    public double applyPricingModule(){
+
+        pricingModule.getPricingStrategies();
+        //do something and return the new price
+        return 0;
     }
 
     public boolean isHasTakeAway() {

@@ -7,7 +7,7 @@ public class DeliveryModule {
         this.adress = adress;
     }
 
-    public void dispatchDeliveryMan(){
+    public void dispatchDeliveryPerson(){
 
     }
 

@@ -13,6 +13,8 @@ public class OrderEntryModule {
     private Menu menu;
     private double totalPrice;
 
+    private DeliveryModule deliveryModule;
+
     public OrderEntryModule(String url){
         this.restaurantURL = url;
     }
@@ -20,6 +22,7 @@ public class OrderEntryModule {
     public void addToOrder(Item item){
         orderList.add(item);
     }
+    private APIRequest apiRequest;
 
     public Item removeFromOrder(Item item){
         orderList.remove(item);
@@ -34,12 +37,20 @@ public class OrderEntryModule {
     }
 
     public void createDeliveryModule(String adress){
+        deliveryModule = new DeliveryModule(adress);
+    }
 
+    public DeliveryModule getDeliveryModule() {
+        return deliveryModule;
     }
 
     public String sendAPIRequest(String header, String endPoint, String param, String restaurantURL, String operation){
-        APIRequest apiRequest = new APIRequest(header, endPoint, param, restaurantURL, operation);
+        apiRequest = new APIRequest(header, endPoint, param, restaurantURL, operation);
         return apiRequest.execute();
+    }
+
+    public APIRequest getApiRequest() {
+        return apiRequest;
     }
 
     public void sendToKitchen(){

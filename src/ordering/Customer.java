@@ -1,14 +1,30 @@
 package ordering;
 
-public class Customer {
+public class Customer extends User {
 
     private String adress;
     private OrderEntryModule orderEntryModule;
 
-    public Customer(String adress){
+    public Customer(String name, String adress){
+        super(name);
         this.adress = adress;
     }
 
+    public String getAdress() {
+        return adress;
+    }
+
+    public void setAdress(String adress) {
+        this.adress = adress;
+    }
+
+    public OrderEntryModule getOrderEntryModule() {
+        return orderEntryModule;
+    }
+
+    public void setOrderEntryModule(OrderEntryModule orderEntryModule) {
+        this.orderEntryModule = orderEntryModule;
+    }
 
     public void orderEntryModule(String qrcode){
         orderEntryModule = new OrderEntryModule(qrcode);
