@@ -4,16 +4,14 @@ package assignment3.designpat.bakery;
  * student names: Noah Croes, Achilleas Leivadiotis
  * student id's: i6220934, i6327367
  */
-/**
- * 
- * Cake bake class.
- */
-public abstract class Cake {
-    private final int CAKE_COST = 10;
-
+public class StrawberryCake extends Cake {
+    private final int CAKE_COST = 20;
+    @Override
     public int getCost() {
         return CAKE_COST;
     }
-
-    public abstract String getDescription();
+    @Override
+    public String getDescription() {
+        return "Strawberry cake";
+    }
 }
