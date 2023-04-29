@@ -3,6 +3,12 @@ package assignment3.designpat.telephone;
 import java.util.Random;
 
 /**
+ * group name: 57
+ * student names: Noah Croes, Achilleas Leivadiotis
+ * student id's: i6220934, i6327367
+ */
+
+/**
  * Mimic the assignment3.data input ability of a physical phone's keypad;
  * however, here we're just sending it fake digits.
  */
