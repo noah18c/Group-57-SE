@@ -1,7 +1,11 @@
 package assignment3.designpat.websearch;
 
 import assignment3.designpat.websearch.WebSearchModel.QueryObserver;
-
+/**
+ * group name: 57
+ * student names: Noah Croes, Achilleas Leivadiotis
+ * student id's: i6220934, i6327367
+ */
 /**
  * Watches the search queries
  */
