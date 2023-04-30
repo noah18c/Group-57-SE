@@ -1,17 +1,21 @@
 package assignment3.designpat.websearch;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
-
+import java.util.HashMap;
+import java.util.Map;
+/**
+ * group name: 57
+ * student names: Noah Croes, Achilleas Leivadiotis
+ * student id's: i6220934, i6327367
+ */
 /**
  * Perform "web search" (from a file), notify the interested observers of each
  * query.
  */
 public class WebSearchModel {
     private final File sourceFile;
-    private final List<QueryObserver> observers = new ArrayList<>();
-    private final List<iQueryFilter> filters = new ArrayList<>();
+    private final Map<QueryObserver, iQueryFilter> hashmap = new HashMap<QueryObserver, iQueryFilter>();
+
     public interface QueryObserver {
         void onQuery(String query);
     }
@@ -41,17 +45,16 @@ public class WebSearchModel {
     }
 
     public void addQueryObserver(QueryObserver queryObserver, iQueryFilter queryFilter) {
-        observers.add(queryObserver);
-        filters.add(queryFilter);
+        hashmap.put(queryObserver, queryFilter);
     }
 
     private void notifyAllObservers(String line) {
-        for (int i = 0; i < observers.size(); i++) {
-            QueryObserver observer = observers.get(i);
-            iQueryFilter filter = filters.get(i);
+        for (QueryObserver obs : hashmap.keySet()) {
+            iQueryFilter filter = hashmap.get(obs);
             if (filter.filter(line)) {
-                observer.onQuery(line);
+                obs.onQuery(line);
             }
+
         }
     }
 }
