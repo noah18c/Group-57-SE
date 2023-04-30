@@ -3,7 +3,11 @@ package assignment3.designpat.websearch;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * group name: 57
+ * student names: Noah Croes, Achilleas Leivadiotis
+ * student id's: i6220934, i6327367
+ */
 /**
  * Perform "web search" (from a file), notify the interested observers of each
  * query.
