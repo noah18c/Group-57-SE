@@ -14,13 +14,13 @@ import java.util.Map;
  */
 public class WebSearchModel {
     private final File sourceFile;
-    private final Map<QueryObserver, iQueryFilter> hashmap = new HashMap<QueryObserver, iQueryFilter>();
+    private final Map<QueryObserver, IQueryFilter> hashmap = new HashMap<QueryObserver, IQueryFilter>();
 
     public interface QueryObserver {
         void onQuery(String query);
     }
 
-    public interface iQueryFilter {
+    public interface IQueryFilter {
         boolean filter(String query);
     }
 
@@ -44,13 +44,13 @@ public class WebSearchModel {
         }
     }
 
-    public void addQueryObserver(QueryObserver queryObserver, iQueryFilter queryFilter) {
+    public void addQueryObserver(QueryObserver queryObserver, IQueryFilter queryFilter) {
         hashmap.put(queryObserver, queryFilter);
     }
 
     private void notifyAllObservers(String line) {
         for (QueryObserver obs : hashmap.keySet()) {
-            iQueryFilter filter = hashmap.get(obs);
+            IQueryFilter filter = hashmap.get(obs);
             if (filter.filter(line)) {
                 obs.onQuery(line);
             }

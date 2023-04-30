@@ -1,6 +1,5 @@
 package assignment3.designpat.websearch;
 
-import assignment3.designpat.websearch.WebSearchModel.QueryObserver;
 /**
  * group name: 57
  * student names: Noah Croes, Achilleas Leivadiotis
@@ -19,7 +18,7 @@ public class Snooper {
             public void onQuery(String query) {
                 System.out.println("Oh yes! " + query);
             }
-        }, new WebSearchModel.iQueryFilter() {
+        }, new WebSearchModel.IQueryFilter() {
 
             @Override
             public boolean filter(String query) {
@@ -35,7 +34,7 @@ public class Snooper {
             public void onQuery(String query) {
                 System.out.println("So long.... " + query);
             }
-        }, new WebSearchModel.iQueryFilter() {
+        }, new WebSearchModel.IQueryFilter() {
 
             @Override
             public boolean filter(String query) {
