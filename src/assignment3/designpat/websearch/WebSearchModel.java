@@ -11,9 +11,13 @@ import java.util.List;
 public class WebSearchModel {
     private final File sourceFile;
     private final List<QueryObserver> observers = new ArrayList<>();
-
+    private final List<iQueryFilter> filters = new ArrayList<>();
     public interface QueryObserver {
         void onQuery(String query);
+    }
+
+    public interface iQueryFilter {
+        boolean filter(String query);
     }
 
     public WebSearchModel(File sourceFile) {
@@ -36,13 +40,18 @@ public class WebSearchModel {
         }
     }
 
-    public void addQueryObserver(QueryObserver queryObserver) {
+    public void addQueryObserver(QueryObserver queryObserver, iQueryFilter queryFilter) {
         observers.add(queryObserver);
+        filters.add(queryFilter);
     }
 
     private void notifyAllObservers(String line) {
-        for (QueryObserver obs : observers) {
-            obs.onQuery(line);
+        for (int i = 0; i < observers.size(); i++) {
+            QueryObserver observer = observers.get(i);
+            iQueryFilter filter = filters.get(i);
+            if (filter.filter(line)) {
+                observer.onQuery(line);
+            }
         }
     }
 }
