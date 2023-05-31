@@ -1,4 +1,4 @@
-
+package assignment8;
 import java.util.Random;
 
 public class GameRunner {
@@ -6,7 +6,7 @@ public class GameRunner {
 	private static boolean notAWinner;
 
 	public static void main(String[] args) {
-		Game aGame = new Game();
+		Game aGame = new Game(50);
 
 		aGame.add("Chet");
 		aGame.add("Pat");

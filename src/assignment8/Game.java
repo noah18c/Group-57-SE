@@ -1,43 +1,27 @@
+package assignment8;
+
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 public class Game {
-	ArrayList players = new ArrayList();
+
+	private final int PLACES = 12;
+	ArrayList<Players> players = new ArrayList<>();
 	int[] places = new int[6];
 	int[] purses = new int[6];
 	boolean[] inPenaltyBox = new boolean[6];
 
-	LinkedList popQuestions = new LinkedList();
-	LinkedList scienceQuestions = new LinkedList();
-	LinkedList sportsQuestions = new LinkedList();
-	LinkedList rockQuestions = new LinkedList();
-
-	int currentPlayer = 0;
+	private int currentPlayer = 0;
 	boolean isGettingOutOfPenaltyBox;
+	private QuestionHandler questionHandler;
+	// changed constructor to create question handler which will deal with the questions
+	public Game(int amountOfQuestions) {
 
-	public Game() {
-		for (int i = 0; i < 50; i++) {
-			popQuestions.addLast("Pop Question " + i);
-			scienceQuestions.addLast(("Science Question " + i));
-			sportsQuestions.addLast(("Sports Question " + i));
-			rockQuestions.addLast(createRockQuestion(i));
-		}
-	}
+		questionHandler = new QuestionHandler(amountOfQuestions);
 
-	public String createRockQuestion(int index) {
-		return "Rock Question " + index;
-	}
-
-	public boolean isPlayable() {
-		return (howManyPlayers() >= 2);
 	}
 
 	public boolean add(String playerName) {
-
-		players.add(playerName);
-		places[howManyPlayers()] = 0;
-		purses[howManyPlayers()] = 0;
-		inPenaltyBox[howManyPlayers()] = false;
+		players.add(new Players(playerName,0,0,false));
 
 		System.out.println(playerName + " was added");
 		System.out.println("They are player number " + players.size());
@@ -65,7 +49,7 @@ public class Game {
 						+ "'s new location is "
 						+ places[currentPlayer]);
 				System.out.println("The category is " + currentCategory());
-				askQuestion();
+				questionHandler.askQuestion(currentCategory());
 			} else {
 				System.out.println(players.get(currentPlayer) + " is not getting out of the penalty box");
 				isGettingOutOfPenaltyBox = false;
@@ -81,20 +65,9 @@ public class Game {
 					+ "'s new location is "
 					+ places[currentPlayer]);
 			System.out.println("The category is " + currentCategory());
-			askQuestion();
+			questionHandler.askQuestion(currentCategory());
 		}
 
-	}
-
-	private void askQuestion() {
-		if (currentCategory() == "Pop")
-			System.out.println(popQuestions.removeFirst());
-		if (currentCategory() == "Science")
-			System.out.println(scienceQuestions.removeFirst());
-		if (currentCategory() == "Sports")
-			System.out.println(sportsQuestions.removeFirst());
-		if (currentCategory() == "Rock")
-			System.out.println(rockQuestions.removeFirst());
 	}
 
 	private String currentCategory() {
@@ -144,7 +117,7 @@ public class Game {
 
 		} else {
 
-			System.out.println("Answer was corrent!!!!");
+			System.out.println("Answer was correct!!!!");
 			purses[currentPlayer]++;
 			System.out.println(players.get(currentPlayer)
 					+ " now has "
@@ -173,5 +146,9 @@ public class Game {
 
 	private boolean didPlayerWin() {
 		return !(purses[currentPlayer] == 6);
+	}
+
+	public QuestionHandler getQuestionHandler(){
+		return questionHandler;
 	}
 }
