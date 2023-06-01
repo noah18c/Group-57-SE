@@ -34,15 +34,4 @@ public class PlayerHandler {
         queue.offer(player);
         return queue.peek();
     }
-
-    public Player getTopPlayer(){
-        Player topPlayer = players.get(0);
-        for(Player player: players){
-            if(topPlayer.getCoins()<player.getCoins()){
-                topPlayer = player;
-            }
-        }
-        System.out.println("The top player is "+topPlayer.getName());
-        return topPlayer;
-    }
 }

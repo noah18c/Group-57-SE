@@ -15,13 +15,6 @@ public class Player {
     public String getName() {
         return name;
     }
-    public void setInPenaltyBox(Boolean inPenaltyBox){
-        this.inPenaltyBox = inPenaltyBox;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public int getCoins() {
         return coins;
