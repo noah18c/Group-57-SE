@@ -3,8 +3,6 @@ import java.util.Random;
 
 public class GameRunner {
 
-	private static boolean aWinner;
-
 	public static void main(String[] args) {
 		Game aGame = new Game(50);
 
@@ -13,6 +11,8 @@ public class GameRunner {
 		aGame.add("Sue");
 
 		Random rand = new Random();
+
+		boolean aWinner = false;
 
 		do {
 
