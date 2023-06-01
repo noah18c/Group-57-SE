@@ -14,15 +14,12 @@ public class Game {
 		playerHandler.addPlayer(new Player(playerName));
 	}
 
-	public int howManyPlayers() {
-		return players.size();
-	}
 
 	public void roll(int roll) {
-		System.out.println(players.get(currentPlayer) + " is the current player");
+		Player player = playerHandler.getCurrentPlayer();
 		System.out.println("They have rolled a " + roll);
 
-		if (inPenaltyBox[currentPlayer]) {
+		if (player.isInPenaltyBox()) {
 			if (roll % 2 != 0) {
 				System.out.println(player.getName() + " is getting out of the penalty box");
 				player.setInPenaltyBox(false);
@@ -36,28 +33,6 @@ public class Game {
 			player.addPlace(roll);
 			questionHandler.askQuestion(player);
 		}
-	}
-
-	private String currentCategory() {
-		if (places[currentPlayer] == 0)
-			return "Pop";
-		if (places[currentPlayer] == 4)
-			return "Pop";
-		if (places[currentPlayer] == 8)
-			return "Pop";
-		if (places[currentPlayer] == 1)
-			return "Science";
-		if (places[currentPlayer] == 5)
-			return "Science";
-		if (places[currentPlayer] == 9)
-			return "Science";
-		if (places[currentPlayer] == 2)
-			return "Sports";
-		if (places[currentPlayer] == 6)
-			return "Sports";
-		if (places[currentPlayer] == 10)
-			return "Sports";
-		return "Rock";
 	}
 
 	public boolean wasCorrectlyAnswered() {
