@@ -35,7 +35,7 @@ public class Player {
     public void addPlace(int roll){
         this.place += roll;
         if(this.place > 11)
-            this.place -= 12;
+            this.place = 0;
         System.out.println(this.name + "'s new location is " + this.place);
     }
 

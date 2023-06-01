@@ -38,7 +38,6 @@ public class Game {
 	public boolean wasCorrectlyAnswered() {
 		Player player = playerHandler.getCurrentPlayer();
 		System.out.println("Answer was correct!!!!");
-
 		if (player.isInPenaltyBox()) {
 			playerHandler.nextPlayer();
 			return false;

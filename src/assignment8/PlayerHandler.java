@@ -2,6 +2,7 @@ package assignment8;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.Optional;
 import java.util.Queue;
 
 public class PlayerHandler {
@@ -32,5 +33,16 @@ public class PlayerHandler {
         Player player = queue.poll();
         queue.offer(player);
         return queue.peek();
+    }
+
+    public Player getTopPlayer(){
+        Player topPlayer = players.get(0);
+        for(Player player: players){
+            if(topPlayer.getCoins()<player.getCoins()){
+                topPlayer = player;
+            }
+        }
+        System.out.println("The top player is "+topPlayer.getName());
+        return topPlayer;
     }
 }

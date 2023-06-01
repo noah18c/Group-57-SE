@@ -1,6 +1,7 @@
 package assignment8;
 
 import java.util.LinkedList;
+import java.util.Optional;
 
 public class QuestionHandler {
 
@@ -20,19 +21,23 @@ public class QuestionHandler {
         String currentCategory = getCurrentCategory(currentPlayer.getPlace());
         System.out.println("The category is " + currentCategory);
 
-        boolean questionFound = false;
+        Optional<Question> optional = findQuestion(currentCategory);
+        if(optional.isEmpty()){
+            System.out.println("no question of type "+currentCategory+" was found");
+        }
+    }
+
+    private Optional<Question> findQuestion(String currentCategory){
+        Optional<Question> optional = Optional.empty();
         for(Question question: questions){
             if(question.getQuestionType().equals(currentCategory)){
                 System.out.println(question.getQuestion());
+                optional = Optional.of(question);
                 questions.remove(question);
-                questionFound = true;
-                break;
+                return optional;
             }
         }
-        if(!questionFound){
-            System.out.println("no question of type "+currentCategory+" was found");
-        }
-
+        return optional;
     }
 
     private String getCurrentCategory(int place) {
