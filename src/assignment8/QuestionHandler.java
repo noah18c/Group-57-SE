@@ -15,7 +15,10 @@ public class QuestionHandler {
     }
 
     //changed long if-statement code to compact code
-    public void askQuestion(String currentCategory) {
+    public void askQuestion(Player currentPlayer) {
+        String currentCategory = getCurrentCategory(currentPlayer.getPlace());
+        System.out.println("The category is " + currentCategory);
+
         for(Question question: questions){
             if(question.getQuestionType() == currentCategory){
                 System.out.println(question.getQuestion());
@@ -26,6 +29,20 @@ public class QuestionHandler {
         }
 
     }
+
+    private String getCurrentCategory(int place) {
+        if (place == 0 || place == 4 || place == 8){
+            return "Pop";
+        } else if (place == 1 || place == 5 || place == 9){
+            return "Science";
+        } else if (place == 2 || place == 6 || place == 10){
+            return "Sports";
+        } else {
+            return "Rock";
+        }
+    }
+
+
 
 
 }
