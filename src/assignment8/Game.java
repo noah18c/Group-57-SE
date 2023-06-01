@@ -58,6 +58,11 @@ public class Game {
 	}
 
 	private boolean didPlayerWin(Player player) {
-		return player.getCoins() >= 6;
+		if (player.getCoins() >= 6){
+			System.out.println("We have a winner! Congrats " + player.getName());
+			return true;
+		} else {
+			return false;
+		}
 	}
 }

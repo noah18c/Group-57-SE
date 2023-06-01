@@ -6,11 +6,12 @@ public class QuestionHandler {
 
     private LinkedList<Question> questions;
     public QuestionHandler(int amountOfQuestions){
+        questions = new LinkedList<>();
         for (int i = 0; i < amountOfQuestions; i++) {
-            questions.addLast(new Question("Science Question", ""+i, "Science"));
-            questions.addLast(new Question("Pop Question", ""+i, "Pop"));
-            questions.addLast(new Question("Sports Question", ""+i, "Sports"));
-            questions.addLast(new Question("Rock Question", ""+i, "Rock"));
+            questions.addLast(new Question("Science", ""+i, "Science"));
+            questions.addLast(new Question("Pop", ""+i, "Pop"));
+            questions.addLast(new Question("Sports", ""+i, "Sports"));
+            questions.addLast(new Question("Rock", ""+i, "Rock"));
         }
     }
 
@@ -19,13 +20,17 @@ public class QuestionHandler {
         String currentCategory = getCurrentCategory(currentPlayer.getPlace());
         System.out.println("The category is " + currentCategory);
 
+        boolean questionFound = false;
         for(Question question: questions){
-            if(question.getQuestionType() == currentCategory){
+            if(question.getQuestionType().equals(currentCategory)){
                 System.out.println(question.getQuestion());
                 questions.remove(question);
-            } else {
-                System.out.println("all "+currentCategory+" questions are answered");
+                questionFound = true;
+                break;
             }
+        }
+        if(!questionFound){
+            System.out.println("no question of type "+currentCategory+" was found");
         }
 
     }
