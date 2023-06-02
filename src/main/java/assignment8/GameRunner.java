@@ -1,6 +1,11 @@
 package assignment8;
 import java.util.Random;
 
+/**
+ * Group name: 57
+ * Student names: Noah Croes, Achilleas Leivadiotis
+ * Student id’s: i6220934, i6327367
+ */
 public class GameRunner {
 
 	public static void main(String[] args) {

@@ -1,5 +1,10 @@
 package assignment8;
 
+/**
+ * Group name: 57
+ * Student names: Noah Croes, Achilleas Leivadiotis
+ * Student id’s: i6220934, i6327367
+ */
 public class Question {
 
     private String question, questionType, answer;

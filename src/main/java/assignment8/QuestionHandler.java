@@ -3,6 +3,11 @@ package assignment8;
 import java.util.LinkedList;
 import java.util.Optional;
 
+/**
+ * Group name: 57
+ * Student names: Noah Croes, Achilleas Leivadiotis
+ * Student id’s: i6220934, i6327367
+ */
 public class QuestionHandler {
 
     private LinkedList<Question> questions;

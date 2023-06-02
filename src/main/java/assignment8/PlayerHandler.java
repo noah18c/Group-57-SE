@@ -5,6 +5,11 @@ import java.util.LinkedList;
 import java.util.Optional;
 import java.util.Queue;
 
+/**
+ * Group name: 57
+ * Student names: Noah Croes, Achilleas Leivadiotis
+ * Student id’s: i6220934, i6327367
+ */
 public class PlayerHandler {
 
     private ArrayList<Player> players;

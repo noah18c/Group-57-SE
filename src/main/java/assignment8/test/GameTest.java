@@ -5,6 +5,12 @@ import assignment8.Player;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 
+/**
+ * Group name: 57
+ * Student names: Noah Croes, Achilleas Leivadiotis
+ * Student id’s: i6220934, i6327367
+ */
+
 public class GameTest {
 
     @Test
