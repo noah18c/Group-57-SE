@@ -11,8 +11,8 @@ public class PlayerHandler {
     private Queue<Player> queue;
 
     public PlayerHandler(){
-        players = new ArrayList<>();
-        queue = new LinkedList<>();
+        this.players = new ArrayList<>();
+        this.queue = new LinkedList<>();
     }
 
     public void addPlayer(Player player){
@@ -33,5 +33,9 @@ public class PlayerHandler {
         Player player = queue.poll();
         queue.offer(player);
         return queue.peek();
+    }
+
+    public ArrayList<Player> getPlayers(){
+        return this.players;
     }
 }

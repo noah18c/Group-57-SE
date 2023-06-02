@@ -6,8 +6,8 @@ public class Game {
 
 	// changed constructor to create question handler which will deal with the questions
 	public Game(int amountOfQuestions) {
-		questionHandler = new QuestionHandler(amountOfQuestions);
-		playerHandler = new PlayerHandler();
+		this.questionHandler = new QuestionHandler(amountOfQuestions);
+		this.playerHandler = new PlayerHandler();
 	}
 
 	public void add(String playerName) {
@@ -56,12 +56,16 @@ public class Game {
 		return false;
 	}
 
-	private boolean didPlayerWin(Player player) {
+	public boolean didPlayerWin(Player player) {
 		if (player.getCoins() >= 6){
 			System.out.println("We have a winner! Congrats " + player.getName());
 			return true;
 		} else {
 			return false;
 		}
+	}
+
+	public PlayerHandler getPlayerHandler(){
+		return this.playerHandler;
 	}
 }
